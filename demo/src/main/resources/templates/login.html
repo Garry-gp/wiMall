@@ -1,0 +1,56 @@
+﻿<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head >
+        <title>微称管理员平台</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="css/login.css" rel="stylesheet" type="text/css"/>
+        <script type="text/javascript" src="js/jquery.min.js" ></script>
+        <script type="text/javascript">
+            $(function() {
+                $("#submit").click(function() {
+                    $.ajax({
+                        type : "POST",
+                        url : "/userInfo/toLogin",
+                        data : {
+                            "adminName" : $("#userName").val(),
+                            "password" : $("#password").val()
+                        },
+                        dataType : "json",
+                        success : function(data) {
+                            if (data.result == "2") {
+                                window.location.href ="/index";
+                            } else if(data.result=="1"){
+                                alert("账号或密码错误！");
+                            }else {
+                                alert("账号密码不能为空！");
+                            }
+                        }
+                    });
+                });
+            })
+    </script>
+    </head>
+    <body>
+        <div class="login">
+            <h1 class="title">微称管理员平台</h1>
+            <form action="" method="post">
+                <div class="logo">
+                    <table>
+                        <tr>
+                            <td><span>用户名称: </span></td>
+                            <td><span><input type="text" id="userName" name="userName" /></span></td>
+                        </tr>
+                        <tr>
+                            <td><span>用户密码: </span></td>
+                            <td><span><input type="password" id="password" name="password" /></span></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><input type="button" id="submit" value="登录" /></td>
+                        </tr>
+                    </table>
+                </div>
+            </form>
+        </div>
+
+    </body>
+</html>
