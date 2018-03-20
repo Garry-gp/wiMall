@@ -12,7 +12,9 @@
 	<script type="text/javascript" src="defined/defined_layout.js"></script>
 </head>
 <body class="easyui-layout">
-	<div data-options="region:'north',border:false" style="height:60px;background:#B3DFDA;padding:10px"><span class="font-size-title">微称管理平台</span></div>
+	<div data-options="region:'north',border:false" style="height:60px;background:#B3DFDA;padding:10px">
+		<span class="font-size-title">微称管理平台</span>
+	</div>
 	<div data-options="region:'west',split:true" title="导航菜单" style="width:150px;padding:10px;">
 		<div class="easyui-accordion" data-options="fit:true,border:false">
 			<div title="会员管理" data-options="selected:true" style="padding:10px;">
@@ -32,7 +34,7 @@
 				<div><a href="#" onclick="addTab('日志管理','')">日志管理</a></div>
 			</div>
 			<div title="短信服务平台" style="padding:10px">
-				<div><a href="#" onclick="addTab('用户记录','')">用户记录</a></div>
+				<div><a href="#" onclick="addTab('用户记录','../listPager.html')">用户记录</a></div>
 				<div><a href="#" onclick="addTab('短信设置','')">短信设置</a></div>
 			</div>
 		</div>
@@ -43,7 +45,15 @@
 	</div>
 	<div data-options="region:'center'" title="平台管理">
 		<div id="content" class="easyui-tabs" data-options="fit:true,border:false,plain:true">
-			<div title="首页" data-options="" style="padding:10px"></div>
+			<div title="首页" data-options="" style="padding:10px">
+				<div style="text-align:center;border-radius: 20px;margin: auto;position: absolute;width: 400px;height: 350px;left: 50%;top: 50%;transform: translate(-50%,-50%);">
+					<h2>让我一起改变移动电商</h2>
+					<h5>
+						无论在哪里，我都会向以上上帝的名义发誓，我会用自己双手努力去工作；如果我找不到工作，那我会自己创造一份工作。
+					</h5>
+					<span>— — 签名者：Garry </span>
+				</div>		
+			</div>
 		</div>
 	</div>
 </body>

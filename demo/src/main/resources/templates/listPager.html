@@ -1,7 +1,6 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
 <head>
-    <title>hello</title>
+    <title></title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" type="text/css" href="easyui/themes/default/easyui.css"/>
 	<link rel="stylesheet" type="text/css" href="easyui/themes/icon.css"/>
@@ -9,9 +8,25 @@
 	<link rel="stylesheet" type="text/css" href="css/custom/layout.css"/>
 	<script type="text/javascript" src="easyui/jquery.min.js"></script>
 	<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
-    <script type="text/javascript">
-	    $(function(){
-			var pager = $('#dg').datagrid().datagrid('getPager');	// get the pager of datagrid
+</head>
+<body class="easyui-layout" style="padding:6px;">
+	<table id="dgrid" style="width:100%;height:99%;"
+			data-options="rownumbers:true,singleSelect:true,pagination:true,url:'/userInfo/query',method:'get'">
+      <thead>
+          <tr>
+            <th  field="id" width="11%">用户 ID</th>
+            <th  field="name" align="center" width="20%">用户名称</th>
+            <th  field="phone" align="center" width="20%">电话号码</th>
+            <th  field="code" align="center" width="10%">验证码</th>
+            <th  field="countNum" align="center" width="10%">使用次数</th>
+            <th  field="createDate" width="15%">创建时间</th>
+            <th  field="update" width="15%">更新时间</th>
+          </tr>
+        </thead>
+	</table>
+	<script type="text/javascript">
+		$(function(){
+			var pager = $('#dgrid').datagrid().datagrid('getPager');	// get the pager of datagrid
 			pager.pagination({
 				buttons:[{
 					iconCls:'icon-search',
@@ -29,26 +44,8 @@
 						alert('edit');
 					}
 				}]
-			});			
+			});
 		})
-    </script>
-</head>
-<body>
-	<div title="短信服务平台" style="padding:5px">
-		<table id="dg" class="easyui-datagrid" style="width:100%;height:100%"
-				data-options="rownumbers:true,singleSelect:true,pagination:true,url:'/userInfo/query',method:'get'">
-			<thead>
-				<tr>
-					<th  field="id" width="12%">用户 ID</th>
-					<th  field="name" align="center" width="20%">用户名称</th>
-					<th  field="phone" align="center" width="20%">电话号码</th>
-					<th  field="code" align="center" width="10%">验证码</th>
-					<th  field="countNum" align="center" width="10%">使用次数</th>
-					<th  field="createDate" width="15%">创建时间</th>
-					<th  field="update" width="15%">更新时间</th>
-				</tr>
-			</thead>
-		</table>
-	</div>
+	</script>
 </body>
 </html>
