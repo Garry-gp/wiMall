@@ -1,0 +1,140 @@
+﻿<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head >
+
+	<title>微称管理员平台</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+	<link rel="stylesheet" href="css/jquery.paginate.css" />
+	<link rel="stylesheet" href="css/jquery.yhhDataTable.css" />
+<script type="text/javascript" src="easyui/jquery.min.js" ></script>
+<script type="text/javascript" src="js/jquery.paginate.js" ></script>
+<script type="text/javascript" src="js/jquery.yhhDataTable.js" ></script>
+<script >
+	$(function(){
+
+		$.ajax({
+			url:"/userInfo/queryTemplet",
+			asycn:false,
+			success:function(data){
+				if(data!=null){
+					$("#id").val(data.id);
+					$("#use_userid").html(data.userId);
+					$("#use_password").html(data.password);
+					$("#use_address").html(data.address);
+					$("#use_content").html(data.content);
+				}
+			}
+		});
+        var testdata1 ;
+        $.ajax({
+            url:"/userInfo/query",
+            async:false,
+            type:"post",
+            success:function(data){
+                testdata1=data;
+            }
+        });
+
+        /*更新表格*/
+        var refreshTable = function(data,page){
+            if ($.isEmptyObject(data)) data = {};
+            var toData = {
+                'ajaxParam':{'data':data}
+            }
+            if (!$.isEmptyObject(page)){
+                toData.paginate = {};
+                toData.paginate.currentPage = page;
+            }
+            var $table = $page.find('.result-list');
+            $table.yhhDataTable('refresh',toData);
+        }
+
+        $('#testtable2').yhhDataTable({
+            'paginate':{
+                'changeDisplayLen':true,
+                'type':'updown',
+                'visibleGo': true
+            },
+            'tbodyRow':{
+                'zebra':true
+            },
+            'tbodyData':{
+                'enabled':true,  /*是否传入表格数据*/
+                'source':testdata1 /*传入的表格数据*/
+            }
+        });
+
+        $("#logOff").click(function(){
+            $.ajax({
+                url:"/userInfo/logOff",
+                asycn:false,
+				type:"GET",
+                success:function(data){
+					if(data==true){
+                        window.location.href ="/login";
+					}
+                }
+            });
+		});
+	});
+	
+	function setConfig(){
+		$.ajax({
+			url:"@{/userInfo/setTemplet}",
+			asycn:false,
+			type:"post",
+			data:{
+				"userId":$("#userid").val(),
+				"password":$("#password").val(),
+				"address":$("#address").val(),
+				"content":$("#content").val(),
+				"id":$("#id").val()
+				},
+			success:function(data){
+				if(data==true){
+					alert("设置成功！");
+				}else{
+					alert("设置失败！");
+				}
+			}
+		});		
+	}
+
+</script>
+</head>
+	<body style="padding-bottom:10px;">
+		<div >
+			<input type="button" id="logOff" style="float: right;width: 50px;height: 40px;" value="退出" />
+		</div>
+		<div>
+			<span>当前使用的模板</span><br/>
+			<table>
+				<tr>
+					<td><span>用户账号:</span>&nbsp;<span id="use_userid" style="width: 25%">空</span>&nbsp;&nbsp;&nbsp;</td>
+					<td><span>用户密码:</span>&nbsp;<span id="use_password" style="width: 30%">空</span>&nbsp;&nbsp;&nbsp;</td>
+					<td><span>IP地址:</span>&nbsp;<span id="use_address"  style="width: 30%">空</span>&nbsp;&nbsp;&nbsp;</td>
+					<td><span>设置模板:</span>&nbsp;<span id="use_content"  style="width: 50%">空 </span></td>
+				</tr>
+			</table>
+		</div>
+		<hr/>
+		<div>
+				用户账号:<input type="text" id="userid" name="userid" />&nbsp;
+				用户密码:<input type="text" id="password" name="password" />&nbsp;
+				IP地址:<input type="text" id="address" name="address" />&nbsp;
+				设置模板:<input type="text" id="content" name="content" />&nbsp;
+				<input type="hidden" id="id" name="id" />
+			<button type="button" onclick="setConfig()">设置模板</button>
+		</div>
+		<div style="width:980px;margin:20px auto;">
+			<table id="testtable2">
+				<thead><tr>
+					<th>用户ID</th><th>用户名</th><th>电话号码</th><th>验证码</th><th>使用次数</th>
+				</tr></thead>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>

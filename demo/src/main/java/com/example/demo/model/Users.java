@@ -26,13 +26,23 @@ public class Users {
 	@Column(name="COUNTNUM")
 	private int countNum;
 	
+	//统计用户使用次数
+	@Column(name="updatetime")
+	private String update;
+	
+	//统计用户使用次数
+	@Column(name="creationtime")
+	private String createDate;
+	
 	public Users(){}
 	
-	public Users(String name, String phone, String code, int countNum) {
+	public Users(String name, String phone, String code, int countNum, String update,String createDate) {
 		this.name = name;
 		this.phone = phone;
 		this.code = code;
 		this.countNum = countNum;
+		this.update = update;
+		this.createDate = createDate;
 	}
 
 	public String getId() {
@@ -68,6 +78,20 @@ public class Users {
 		this.countNum = countNum;
 	}
 	
+	public String getUpdate() {
+		return update;
+	}
+
+	public void setUpdate(String update) {
+		this.update = update;
+	}
 	
+	public String getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(String createDate) {
+		this.createDate = createDate;
+	}
 
 }
