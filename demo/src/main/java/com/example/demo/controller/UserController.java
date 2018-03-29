@@ -1,23 +1,28 @@
 package com.example.demo.controller;
 
-import java.util.List;
 
 import com.example.demo.model.Templet;
 import com.example.demo.model.Users;
 import com.example.demo.service.TempletService;
 import com.example.demo.service.UserService;
-import org.apache.catalina.Session;
-import org.apache.http.HttpRequest;
-import org.apache.http.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.HttpServletBean;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -29,6 +34,7 @@ public class UserController {
 	@Autowired
 	TempletService templetService;
 
+//	@InterceptMethod(Method = "aa", Value = "bb")  //拦截器
 	@RequestMapping(value = "/toLogin",method = RequestMethod.POST)
 	public Map<String,Object> login(HttpServletRequest request, HttpServletResponse response){
 		Map<String,Object> map =new HashMap<String,Object>();
@@ -84,13 +90,19 @@ public class UserController {
 		return null;
 	}
 	
-	@RequestMapping(value="/query")
-	public List<Users> getUserDate(){
-		return userService.getUserData();
+	@RequestMapping(value="/query",method=RequestMethod.GET)
+	public Map<String, Object> getUserDate(@RequestParam(value = "page")Integer page,@RequestParam(value = "rows")Integer size) throws Exception{
+		Map<String, Object> map = new HashMap<String, Object>();
+		Pageable pageable = new PageRequest(page-1,size);
+		Page<Users> pages= userService.getUserPage(page,size);
+		List<Users> list = pages.getContent();
+		map.put("total",pages.getTotalElements());
+		map.put("rows",list);
+		return map;
 	}
 	
 	@RequestMapping(value="/setTemplet")
-	public boolean setConfig(HttpRequest request,HttpResponse response, Templet templet){		
+	public boolean setConfig(HttpServletRequest request,HttpServletBean response, Templet templet){		
 		boolean flag = false;
 		Templet tpl= templetService.saveTemplet(templet);
 		if(tpl!=null){

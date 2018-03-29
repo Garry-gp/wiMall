@@ -17,7 +17,7 @@
 	</div>
 	<div data-options="region:'west',split:true" title="导航菜单" style="width:150px;padding:10px;">
 		<div class="easyui-accordion" data-options="fit:true,border:false">
-			<div title="会员管理" data-options="selected:true" style="padding:10px;">
+			<div title="会员管理"  style="padding:10px;">
 				<div><a href="#" onclick="addTab('消费用户管理','http://www.baidu.com')">消费用户管理</a></div>
 			</div>
 			<div title="商城配置" style="padding:10px;">
@@ -33,7 +33,7 @@
 				<div><a href="#" onclick="addTab('权限管理','')">权限管理</a></div>
 				<div><a href="#" onclick="addTab('日志管理','')">日志管理</a></div>
 			</div>
-			<div title="短信服务平台" style="padding:10px">
+			<div title="短信服务平台" data-options="selected:true" style="padding:10px">
 				<div><a href="#" onclick="addTab('用户记录','../listPager.html')">用户记录</a></div>
 				<div><a href="#" onclick="addTab('短信设置','')">短信设置</a></div>
 			</div>
@@ -41,12 +41,14 @@
 	</div>
 	<div data-options="region:'east',split:true,collapsed:true,title:'East'" style="width:100px;padding:10px;">east region</div>
 	<div data-options="region:'south',border:false" style="height:50px;background:#A9FACD;padding:10px;">
-		<span>记得点赞</span>
+		<div class="div_bottom">
+			<span>记得点赞</span>
+		</div>
 	</div>
 	<div data-options="region:'center'" title="平台管理">
 		<div id="content" class="easyui-tabs" data-options="fit:true,border:false,plain:true">
 			<div title="首页" data-options="" style="padding:10px">
-				<div style="text-align:center;border-radius: 20px;margin: auto;position: absolute;width: 400px;height: 350px;left: 50%;top: 50%;transform: translate(-50%,-50%);">
+				<div class="center_div">
 					<h2>让我一起改变移动电商</h2>
 					<h5>
 						无论在哪里，我都会向以上上帝的名义发誓，我会用自己双手努力去工作；如果我找不到工作，那我会自己创造一份工作。

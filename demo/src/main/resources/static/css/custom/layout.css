@@ -3,3 +3,25 @@
 .easyui-layout .font-size-title{
 	font-size: 20px;
 }
+
+.center_div{
+	text-align:center;
+	border-radius: 20px;
+	margin: auto;
+	position: absolute;
+	width: 400px;
+	height: 350px;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+}
+
+.div_bottom {
+	text-align:center;
+	border-radius: 20px;
+	margin: auto;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+}

@@ -5,13 +5,21 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.UUID;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 import com.example.demo.model.Message;
 import com.example.demo.model.Templet;
 import com.example.demo.model.Users;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.util.CHttpPost;
 import com.example.demo.util.ConfigManager;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 
@@ -25,6 +33,8 @@ public class UserService {
 		
 	@Autowired
 	UserRepository userRepository;
+	@PersistenceContext
+	private EntityManager entityManager;
 	
 
 	public Users findUser(String name){
@@ -158,9 +168,13 @@ public class UserService {
 		}
 	}
 
-	public List<Users> getUserData() {		
-		List<Users> user =  userRepository.findAll();		
-		return user;
+	public Page<Users> getUserPage(int page, int rows) {		
+		Integer pageNo = Integer.valueOf(page);
+		Integer pageSize = Integer.valueOf(rows);		
+		Sort sort = new Sort(Sort.Direction.DESC,"createTime"); //创建时间降序排序
+		Pageable pageable = new PageRequest(page-1, rows);  
+		Page<Users> pages = userRepository.findAll(pageable);
+		return pages;
 	}
-
+	
 }
