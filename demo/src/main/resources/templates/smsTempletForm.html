@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="/easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/easyui/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="/easyui/demo/demo.css">
+    <script type="text/javascript" src="/easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="/easyui/jquery.easyui.min.js"></script>
+</head>
+<body>
+	<h3>短信模板设置</h3>
+	<div style="margin:10px 0;"></div>
+	<div class="easyui-panel" >
+	    <form id="ff" method="post">
+	    	<table cellpadding="5" >
+	    		<tr>
+	    			<td>第三方用户账号:</td>
+	    			<td><input class="easyui-textbox" type="text" name="uname" data-options="required:true"></input></td>
+	    		</tr>
+	    		<tr>
+	    			<td>第三方用户密码:</td>
+	    			<td><input class="easyui-textbox" type="text" name="uPassword" data-options="required:true,validType:'password'"></input></td>
+	    		</tr>
+	    		<tr>
+	    			<td>本地 IP 地址:</td>
+	    			<td><input class="easyui-textbox" type="text" name="ipAddress" data-options="required:true"></input></td>
+	    		</tr>
+	    		<tr>
+	    			<td>发送短信模板:</td>
+	    			<td><input class="easyui-textbox" type="textarea" name="templet" data-options="required:true" style="height:120px;width:500px"></input></td>
+	    		</tr>
+	    	</table>
+	    </form>
+	    <div style="text-align:center;padding:5px">
+	    	<a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()">提交</a>
+	    	<a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()">重置</a>
+	    </div>
+	</div>
+	<script>
+		function submitForm(){
+			$('#ff').form('submit');
+		}
+		function clearForm(){
+			$('#ff').form('clear');
+		}
+	</script>
+</body>
+</html>

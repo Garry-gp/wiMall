@@ -4,8 +4,13 @@ import java.util.List;
 import java.util.UUID;
 
 import com.example.demo.model.Templet;
+import com.example.demo.model.Users;
 import com.example.demo.repository.TempletRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 
@@ -32,5 +37,12 @@ public class TempletService {
 			return templetList.get(0);
 		}
 		return null;
+	}
+	
+	public Page<Templet> findTemletPage(int page, int rows) {		
+		Sort sort = new Sort(Sort.Direction.DESC,"createTime"); //创建时间降序排序
+		Pageable pageable = new PageRequest(page-1, rows);  
+		Page<Templet> pages = templetRepository.findAll(pageable);
+		return pages;
 	}
 }

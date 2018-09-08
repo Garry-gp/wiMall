@@ -11,8 +11,8 @@ public class Templet {
 	
 	@Id
 	String id;
-	@Column(name ="address")
-	String address;
+	@Column(name ="ipaddress")
+	String ipAddress;
 	//短信内容
 	@Column(name ="content")
 	String content;
@@ -23,13 +23,28 @@ public class Templet {
 	@Column(name ="userid")
 	String userId;
 	
+	//状态
+	@Column(name ="status")
+	int status;
+	
+	//跟新时间
+	@Column(name="updatetime")
+	private String update;
+	
+	//创建时间
+	@Column(name="creationtime")
+	private String createDate;
+
 	public Templet() {}
 	
-	public Templet( String address, String content, String password, String userId) {
-		this.address = address;
+	public Templet( String ipAddress, String content, String password, String userId, int status,String update,String createDate) {
+		this.ipAddress = ipAddress;
 		this.content = content;
 		this.password = password;
 		this.userId = userId;
+		this.status = status;
+		this.update = update;
+		this.createDate = createDate;
 	}
 
 	public String getId() {
@@ -40,12 +55,12 @@ public class Templet {
 		this.id = id;
 	}
 
-	public String getAddress() {
-		return address;
+	public String getIpAddress() {
+		return ipAddress;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+	public void setIpAddress(String ipAddress) {
+		this.ipAddress = ipAddress;
 	}
 
 	public String getContent() {
@@ -72,6 +87,28 @@ public class Templet {
 		this.userId = userId;
 	}
 	
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
+	public String getUpdate() {
+		return update;
+	}
+
+	public void setUpdate(String update) {
+		this.update = update;
+	}
 	
+	public String getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(String createDate) {
+		this.createDate = createDate;
+	}
 
 }

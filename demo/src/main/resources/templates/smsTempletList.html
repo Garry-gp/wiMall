@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="/easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/easyui/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="/easyui/demo/demo.css">
+    <script type="text/javascript" src="/easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="/easyui/jquery.easyui.min.js"></script>
+
+    <script type="text/javascript">
+  	    $(function(){
+   			var pager = $('#dgrid').datagrid().datagrid('getPager');	// get the pager of datagrid
+   			pager.pagination({
+   				buttons:[{
+   					iconCls:'icon-search',
+   					handler:function(){
+   						alert('search');
+   						}
+   					},{
+       					iconCls:'icon-add',
+       					handler:function(){
+       						$('#SettingTempletView').window({
+       							title:"编辑短信模板",
+       						    width:600,
+       						    height:330,
+       						    modal:true
+       						});
+       					}
+       				},{
+       					iconCls:'icon-edit',
+       					handler:function(){
+       						$('#SettingTempletView').window({
+       							title:"添加短信模板",
+       						    width:600,
+       						    height:330,
+       						    modal:true
+       						});
+       				}
+   				}]
+   			});
+
+  		});
+  	    
+  	  	function submitForm(){
+			$('#ff').form('submit');
+		}
+		function clearForm(){
+			$('#ff').form('clear');
+		}
+    </script>
+</head>
+<body class="easyui-layout" style="padding:5px">
+	<div class="easyui-tabs" data-options="fit:true,border:false,plain:true">
+		<table id="dgrid" style="width:100%;height:100%"
+					data-options="rownumbers:true,singleSelect:true,pagination:true,url:'/templet/query',method:'get'">
+              <thead>
+   				<tr>
+   					<th  field="id" hidden="true">用户 ID</th>
+   					<th  field="userId" align="center" width="11%">第三方用户ID</th>
+   					<th  field="password" align="center" width="11%">第三方用户密码</th>
+   					<th  field="ipAddress" align="center" width="120px">本地 IP地址</th>
+   					<th  field="content" align="center" width="38%">模板内容</th>
+   					<th  field="status" align="center" width="58px">状态</th>
+   					<th  field="update" align="center" width="13%">更新时间</th>
+   					<th  field="createDate" align="center" width="13%">创建时间</th>
+   				</tr>
+   			</thead>
+   		</table>
+	</div>
+	<div id="SettingTempletView">
+		<form id="ff" method="post">
+	    	<table cellpadding="5" >
+	    		<tr>
+	    			<td>第三方用户账号:</td>
+	    			<td><input class="easyui-textbox" type="text" name="uname" data-options="required:true"></input></td>
+	    		</tr>
+	    		<tr>
+	    			<td>第三方用户密码:</td>
+	    			<td><input class="easyui-textbox" type="text" name="uPassword" data-options="required:true,validType:'password'"></input></td>
+	    		</tr>
+	    		<tr>
+	    			<td>本地 IP 地址:</td>
+	    			<td><input class="easyui-textbox" type="text" name="ipAddress" data-options="required:true"></input></td>
+	    		</tr>
+	    		<tr>
+	    			<td>发送短信模板:</td>
+	    			<td><input class="easyui-textbox" type="textarea" name="templet" data-options="required:true" style="height:120px;width:450px"></input></td>
+	    		</tr>
+	    	</table>
+	    </form>
+	    <div style="text-align:center;padding:5px">
+	    	<a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()">提交</a>
+	    	<a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()">重置</a>
+	    </div>
+	</div>
+</body>
+</html>

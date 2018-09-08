@@ -26,11 +26,11 @@ public class Users {
 	@Column(name="COUNTNUM")
 	private int countNum;
 	
-	//统计用户使用次数
+	//跟新时间
 	@Column(name="updatetime")
 	private String update;
 	
-	//统计用户使用次数
+	//创建时间
 	@Column(name="creationtime")
 	private String createDate;
 	

@@ -2,7 +2,6 @@ package com.example.demo.service;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.List;
 import java.util.UUID;
 
 import javax.persistence.EntityManager;
@@ -61,7 +60,7 @@ public class UserService {
 		String msg = content[0]+""+code+""+content[1];
 		String userid = templet.getUserId();
 		String pwd = templet.getPassword();
-		String masterIpAddress=templet.getAddress();
+		String masterIpAddress=templet.getIpAddress();
 		Users u = findUser(phone);		
 		//设置IP
 		ConfigManager.setIpInfo(masterIpAddress, null, null, null);
@@ -169,8 +168,6 @@ public class UserService {
 	}
 
 	public Page<Users> getUserPage(int page, int rows) {		
-		Integer pageNo = Integer.valueOf(page);
-		Integer pageSize = Integer.valueOf(rows);		
 		Sort sort = new Sort(Sort.Direction.DESC,"createTime"); //创建时间降序排序
 		Pageable pageable = new PageRequest(page-1, rows);  
 		Page<Users> pages = userRepository.findAll(pageable);
