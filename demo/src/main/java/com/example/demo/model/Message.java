@@ -1,10 +1,5 @@
 package com.example.demo.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
 /**
  * @功能概要： 短信请求实体类
  * @公司名称： ShenZhen Montnets Technology CO.,LTD.

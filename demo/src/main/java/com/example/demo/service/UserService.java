@@ -7,10 +7,10 @@ import java.util.UUID;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import com.example.demo.dao.UserDao;
 import com.example.demo.model.Message;
 import com.example.demo.model.Templet;
 import com.example.demo.model.Users;
-import com.example.demo.repository.UserRepository;
 import com.example.demo.util.CHttpPost;
 import com.example.demo.util.ConfigManager;
 
@@ -21,23 +21,20 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-
-
-
 @Service
 public class UserService {
 	
 	// 日期格式定义
-	private static SimpleDateFormat	sdf	= new SimpleDateFormat("MMddHHmmss");
-		
+	private final SimpleDateFormat	dateFormat	= new SimpleDateFormat("MMddHHmmss");
+
 	@Autowired
-	UserRepository userRepository;
+	UserDao userDao;
 	@PersistenceContext
 	private EntityManager entityManager;
 	
 
 	public Users findUser(String name){
-		return userRepository.findByName(name);
+		return userDao.findByName(name);
 	}
 
 	/**
@@ -81,7 +78,7 @@ public class UserService {
 			if(isEncryptPwd)
 			{
 				// 设置时间戳
-				String timestamp = sdf.format(Calendar.getInstance().getTime());
+				String timestamp = dateFormat.format(Calendar.getInstance().getTime());
 				message.setTimestamp(timestamp);
 				
 				// 对密码进行加密
@@ -114,11 +111,11 @@ public class UserService {
 					user.setPhone(phone);
 					user.setCode(code);
 					user.setCountNum(1);
-					userRepository.save(user);
+					userDao.add(user);
 				}else{
 					u.setCode(code);
 					u.setCountNum(u.getCountNum()+1);
-					userRepository.save(u);
+					userDao.add(u);
 				}
 			}else{
 				System.out.println("短信发送失败！"+result);
@@ -163,14 +160,14 @@ public class UserService {
 			int num = user.getCountNum() + 1;
 			user.setCountNum(num);
 			//更新用户的访问次数
-			userRepository.saveAndFlush(user);
+			userDao.update(user);
 		}
 	}
 
 	public Page<Users> getUserPage(int page, int rows) {		
 		Sort sort = new Sort(Sort.Direction.DESC,"createTime"); //创建时间降序排序
 		Pageable pageable = new PageRequest(page-1, rows);  
-		Page<Users> pages = userRepository.findAll(pageable);
+		Page<Users> pages = userDao.findAll(pageable);
 		return pages;
 	}
 	

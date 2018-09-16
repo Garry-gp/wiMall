@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 
+import com.example.demo.annotation.AuthorityAction;
 import com.example.demo.model.Templet;
 import com.example.demo.model.Users;
 import com.example.demo.service.TempletService;
@@ -31,7 +32,7 @@ public class UserController {
 	@Autowired
 	TempletService templetService;
 
-//	@InterceptMethod(Method = "aa", Value = "bb")  //拦截器
+//	@AuthorityAction(name ="role", value="operation")
 	@RequestMapping(value = "/toLogin",method = RequestMethod.POST)
 	public Map<String,Object> login(HttpServletRequest request, HttpServletResponse response){
 		Map<String,Object> map =new HashMap<String,Object>();
