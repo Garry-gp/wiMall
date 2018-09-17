@@ -1,6 +1,6 @@
 package com.example.demo.configuer;
 
-import com.example.demo.interceptor.LoginInterceptor;
+import com.example.demo.intercept.LoginInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;

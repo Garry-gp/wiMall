@@ -1,4 +1,4 @@
-package com.example.demo.annotation;
+package com.example.demo.intercept;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -12,7 +12,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Inherited
-public @interface AuthorityAction {
+public @interface OperationAction {
 
     /**
      *  获取参数

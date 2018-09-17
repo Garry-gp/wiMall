@@ -3,6 +3,8 @@ package com.example.demo.controller;
 
 import com.example.demo.model.Templet;
 import com.example.demo.service.TempletService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,13 +19,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Api(tags = "模板管理")
 @RestController
 @RequestMapping("/templet")
 public class TempletController {
 	
 	@Autowired
 	TempletService templetService;
-	
+
+	@ApiOperation(value = "查询")
 	@RequestMapping(value="/query",method=RequestMethod.GET)
 	public Map<String, Object> getUserDate(@RequestParam(value = "page")Integer page,@RequestParam(value = "rows")Integer size) throws Exception{
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -34,13 +38,9 @@ public class TempletController {
 		return map;
 	}
 	
-	//启用设置
-	public boolean settingStatus(){
-		return true;
-	}
-	
 	//添加短信模板
-	@RequestMapping(value="/setTemplet")
+	@ApiOperation(value = "设置模板")
+	@RequestMapping(value="/setTemplet" ,method=RequestMethod.POST)
 	public boolean setConfig(HttpServletRequest request,HttpServletBean response, Templet templet){		
 		boolean flag = false;
 		Templet tpl= templetService.saveTemplet(templet);
@@ -51,7 +51,8 @@ public class TempletController {
 	}
 	
 	//查询
-	@RequestMapping(value="/queryTemplet")
+	@ApiOperation(value = "查询模板")
+	@RequestMapping(value="/queryTemplet",method=RequestMethod.GET)
 	public Templet queryTemplet(){
 		return templetService.queryTemplet();
 	}

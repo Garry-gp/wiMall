@@ -1,4 +1,4 @@
-package com.example.demo.interceptor;
+package com.example.demo.intercept;
 
 import com.example.demo.model.Users;
 import org.springframework.web.method.HandlerMethod;

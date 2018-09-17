@@ -1,4 +1,4 @@
-package com.example.demo.annotation;
+package com.example.demo.intercept;
 
 import com.example.demo.dao.OperationDao;
 import com.example.demo.model.Users;
@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.List;
 
-public class InterceptorAction extends HandlerInterceptorAdapter {
+public class OperationInterceptor extends HandlerInterceptorAdapter {
 
     @Autowired
     private OperationDao operationDao;
@@ -42,12 +42,12 @@ public class InterceptorAction extends HandlerInterceptorAdapter {
             HandlerMethod hMethod=(HandlerMethod)handler;
             Class<?> clazz=hMethod.getBeanType();
             Method method=hMethod.getMethod();
-            boolean isClzAnnotation= clazz.isAnnotationPresent(AuthorityAction.class);
-            boolean isMethondAnnotation=method.isAnnotationPresent(AuthorityAction.class);
-            AuthorityAction rc=null;
+            boolean isClzAnnotation= clazz.isAnnotationPresent(OperationAction.class);
+            boolean isMethondAnnotation=method.isAnnotationPresent(OperationAction.class);
+            OperationAction rc=null;
             //如果方法和类声明中同时存在这个注解，那么方法中的会覆盖类中的设定。
             if(isMethondAnnotation){
-                rc=method.getAnnotation(AuthorityAction.class);
+                rc=method.getAnnotation(OperationAction.class);
                 String orleName=rc.name();
                 String operate = rc.value();
                 //获取用户角色的操作权限
@@ -61,7 +61,7 @@ public class InterceptorAction extends HandlerInterceptorAdapter {
                     return false;
                 }
             }else if(isClzAnnotation){
-                rc=clazz.getAnnotation(AuthorityAction.class);
+                rc=clazz.getAnnotation(OperationAction.class);
             }
         }
         return true;

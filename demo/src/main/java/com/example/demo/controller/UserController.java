@@ -1,11 +1,14 @@
 package com.example.demo.controller;
 
 
-import com.example.demo.annotation.AuthorityAction;
+import com.example.demo.intercept.OperationAction;
 import com.example.demo.model.Templet;
 import com.example.demo.model.Users;
 import com.example.demo.service.TempletService;
 import com.example.demo.service.UserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -23,6 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Api(tags = "用户管理")
 @RestController
 @RequestMapping("/userInfo")
 public class UserController {
@@ -32,7 +36,9 @@ public class UserController {
 	@Autowired
 	TempletService templetService;
 
-//	@AuthorityAction(name ="role", value="operation")
+//	@OperationAction(name ="role", value="operation")
+	@ApiOperation(value = "登录")
+	@ApiImplicitParam(name = "userName",value = "用户名称",required = true)
 	@RequestMapping(value = "/toLogin",method = RequestMethod.POST)
 	public Map<String,Object> login(HttpServletRequest request, HttpServletResponse response){
 		Map<String,Object> map =new HashMap<String,Object>();
@@ -51,6 +57,7 @@ public class UserController {
 		}
 		return map;
 	}
+	@ApiOperation(value = "退出")
 	@RequestMapping(value = "/logOff",method = RequestMethod.GET)
 	public boolean logOff(HttpServletRequest request, HttpServletResponse response){
 		request.getSession().removeAttribute("adminName");
@@ -62,6 +69,7 @@ public class UserController {
 	 * 用户注册
 	 * @return
 	 */
+	@ApiOperation(value = "注册")
 	@RequestMapping(value="/register",method=RequestMethod.GET)
 	public Users getUserRegister(@Param("phone") String phone){
 		Templet templet = templetService.queryTemplet();
@@ -73,6 +81,7 @@ public class UserController {
 	 * 验证输入的验证码
 	 * @return
 	 */
+	@ApiOperation(value = "验证码校验")
 	@RequestMapping(value="/identifyinCode",method=RequestMethod.GET)
 	public String checkIdentifyingCode(@Param("phone") String phone,@Param("code") String code,@Param("num") int num){
 		return userService.checkIdentifyingCode(phone,code,num);
@@ -82,12 +91,14 @@ public class UserController {
 	 * 记录用户的使用次数
 	 * @return
 	 */
+	@ApiOperation(value = "计数")
 	@RequestMapping(value="/count",method=RequestMethod.GET)
 	public String countUser(@Param("phone") String phone){
 		userService.countUser(phone);
 		return null;
 	}
-	
+
+	@ApiOperation(value = "查询")
 	@RequestMapping(value="/query",method=RequestMethod.GET)
 	public Map<String, Object> getUserDate(@RequestParam(value = "page")Integer page,@RequestParam(value = "rows")Integer size) throws Exception{
 		Map<String, Object> map = new HashMap<String, Object>();

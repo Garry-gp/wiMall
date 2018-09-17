@@ -2,7 +2,7 @@ package com.example.demo.testDao;
 
 import com.example.demo.dao.UserDao;
 import com.example.demo.model.Users;
-import org.aspectj.bridge.MessageUtil;
+import junit.framework.TestCase;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,13 +10,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
-
-import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertNotNull;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class UserDaoTest {
+public class UserDaoTes {
 
     @Autowired
     private UserDao userDaoTest;
@@ -26,5 +24,7 @@ public class UserDaoTest {
         List<Users> list =  userDaoTest.selectList();
         assertNotNull(list);
     }
+
+
 
 }
