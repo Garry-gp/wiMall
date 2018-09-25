@@ -170,5 +170,10 @@ public class UserService {
 		Page<Users> pages = userDao.findAll(pageable);
 		return pages;
 	}
-	
+
+    public Users findUserById(String s) {
+		String userId="58ad413d-36e6-11e8-9141-14dae9ccffb3";
+		Users user = userDao.selectByUserId(userId);
+		return user;
+    }
 }
