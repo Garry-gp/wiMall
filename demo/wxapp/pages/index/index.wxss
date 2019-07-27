@@ -1,0 +1,139 @@
+/**index.wxss**/
+
+.page {
+  font-family: '微软雅黑';
+  background-color:#eee;       
+  border:1px;
+  margin:0;
+}
+.slide-image{
+        margin: 2px;
+        height: 100%;
+        width: 100%
+}
+.center-view{ 
+  border-radius: 20rpx;
+  display: flex;
+  flex-direction:row;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  align-items: center;
+}
+.title-view{
+        margin: 5px;
+        height: 30px;
+        white-space: nowrap;
+        display: flex;
+        flex-direction:row;
+        align-items: center;
+}
+.page-section-spacing{
+  box-sizing: border-box;
+  padding: 0 20rpx;
+}
+.swiper-item{
+  display: block;
+  height: 150px;
+}
+.columns{
+        align-items: center;
+        flex-direction:column;
+}
+
+/* 标题样式 */
+.subject_{
+        margin: 2px;
+       height: 30px;
+       width: 80px; 
+}
+.subject_child{
+        margin: 1px;
+        text-align: center; 
+        display:inline-block;
+        height:30px;
+        width:100%
+}
+.zoneType{
+        margin: 1px;
+        background-color: #eaf;
+        text-align: center;
+        height: 150px;
+        width: 95%;
+        
+}
+
+.extend{
+        height: 60px;
+        background-color: #eee;
+}
+
+
+/* 中间滑动的块 */
+.demo-text-1{
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  background-color: #eee;
+  color: #FFFFFF;
+  font-size: 36rpx;
+}
+.demo-text-1:before{
+  content: 'A';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.demo-text-2{
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  background-color: #eee;
+  color: #FFFFFF;
+  font-size: 36rpx;
+}
+.demo-text-2:before{
+  content: 'B';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.demo-text-3{
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  background-color: #eee;
+  color: #fff;
+  font-size: 36rpx;
+}
+.demo-text-3:before{
+  content: 'C';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.demo-text-4{
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  background-color: #eee;
+  color: #fff;
+  font-size: 36rpx;
+}
+.demo-text-4:before{
+  content: 'D';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/* end  */
+
+.type_{
+        margin: 3px;
+        width:95%;
+        height:110px; 
+        background:#efe;
+}

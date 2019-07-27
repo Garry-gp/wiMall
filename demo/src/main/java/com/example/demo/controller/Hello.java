@@ -1,4 +1,4 @@
-package com.example.demo.helloContraler;
+package com.example.demo.controller;
 
 import com.example.demo.model.Actor;
 import com.example.demo.model.Users;

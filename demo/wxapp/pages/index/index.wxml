@@ -1,0 +1,51 @@
+<!-- index.wxml -->
+<view class="page">
+  <swiper>
+      <swiper-item> 
+        <image src="{{imgUrls}}" class="slide-image" mode="aspectFill" />
+      </swiper-item>
+  </swiper>
+  <scroll-view class="title-view" scroll-x="true">
+        <view class="subject_">
+                <view class="subject_child"><text>标题1</text></view>
+                <view class="subject_child"><text>标题2</text></view>
+                <view class="subject_child"><text>标题3</text></view>
+                <view class="subject_child"><text>标题4</text></view>
+        </view> 
+  </scroll-view>
+  <view class="page-section page-section-spacing">
+      <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}"
+        interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px">
+        <block wx:for="{{background}}" wx:key="*this">
+          <swiper-item>
+            <view class="swiper-item {{item}}">
+                <image src="{{imgUrls}}" class="slide-image" mode="aspectFill" />
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+  </view>
+  <view class="center-view columns">
+        <view class="zoneType">
+                <view class="subject_child">
+                        <text>类型专区1</text>
+                </view>
+                <view class='subject_child type_'><image src="{{imgUrls}}" style='width:100%;height:110px;' mode="aspectFill" /></view>
+        </view>
+         <view class="zoneType">
+                <view class="subject_child"><text>类型专区2</text></view>
+                <view class='subject_child type_'><image src="{{imgUrls}}" style='width:100%;height:110px;' mode="aspectFill" /></view>
+        </view>
+         <view class="zoneType">
+                <view class="subject_child"><text>类型专区13</text></view>
+                <view class='subject_child type_'><image src="{{imgUrls}}" style='width:100%;height:110px;' mode="aspectFill" /></view>
+        </view>
+        <view class="zoneType extend">
+                <view class="subject_child">
+                        <text>查看所有宝贝>></text>
+                </view>
+        </view>
+        <view style='margin:2px'><text>内容扩展区</text></view>
+  </view>
+   
+</view>

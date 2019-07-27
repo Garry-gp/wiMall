@@ -2,8 +2,8 @@ package com.example.demo.dao;
 
 
 import com.example.demo.model.Users;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+//import org.springframework.data.domain.Page;
+//import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -19,6 +19,6 @@ public interface UserDao {
 
     public Users findByName(String name);
 
-    public Page<Users> findAll(Pageable pageable);
+//    public Page<Users> findAll(Pageable pageable);
 
 }
