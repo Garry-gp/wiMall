@@ -6,7 +6,7 @@
                         <view class="top_subject_child"><input class='query_input'  adjust-position="true"></input></view>
                 </view> 
         </view>
-        <view style='height:1px;width:100%;background:#aaa'></view>
+        <view style='height:2px;width:100%;background:#aaa'></view>
         <view class="section">
                 <!-- 左侧类型 -->
                 <scroll-view scroll-y="true" class="left">
@@ -18,21 +18,15 @@
                 <!-- 右侧数据 -->
                 <scroll-view scroll-y="true" class="right">
                         <view class="typeTree_topic">
-                                <view class='advance_column'></view>
+                                <view class='advance_column'><image src='../../images/image/10023.jpg'></image></view>
                         </view>
                         <view class="typeTree_bottom">
+                        <block wx:for="{{types}}" wx:key="typeId">
                                <view class='trend_table'>
-                                        <view class='trend_type'></view>
-                                        <view class='trend_type'></view>
+                                        <view class='trend_type'><image src='../../images/image/10047.jpg'></image></view>
+                                        <view class='trend_type'><image src='../../images/image/10047.jpg'></image></view>
                                </view> 
-                               <view class='trend_table'>
-                                        <view class='trend_type'></view>
-                                        <view class='trend_type'></view>
-                               </view> 
-                               <view class='trend_table'>
-                                        <view class='trend_type'></view>
-                                        <view class='trend_type'></view>
-                               </view> 
+                        </block>
                         </view>
                 </scroll-view>
         </view>

@@ -1,6 +1,6 @@
 .subject_{
         background:#f6f6f6;
-        height:47px;
+        height:50px;
         margin:0 auto;
         text-align: center;
 }
@@ -12,6 +12,7 @@
         display: flex;
         flex-direction: row;
         margin: 0 auto;
+        margin-top: 2px;
 }
 .top_subject_child{
         display:inline-block;
@@ -22,7 +23,7 @@
         border-top-left-radius: 2px;
         width:30px;
         height:30px;
-        margin: 6px;
+        margin-top: 9px;
         position: relative;
 }
 .query_input{
@@ -35,7 +36,7 @@
 .section{
   position: absolute;
   width: 100%; 
-  height: 100% ; 
+  height: 92%; 
   overflow: hidden;
    }
 /* 左侧样式 */
@@ -92,6 +93,11 @@
           height:70%;
   }
 
+  .advance_column image{
+          width: 100%;
+          height: 100%;
+  }
+
   /* 右侧栏底部 */
 
 .typeTree_bottom{
@@ -114,6 +120,10 @@
         width:47%;
         height:95%;
         background: #aaa;
+}
+.trend_type image{
+        width:100%;
+        height:100%;
 }
 
 
