@@ -1,9 +1,11 @@
 <!-- index.wxml -->
 <view class="page">
   <swiper>
-      <swiper-item> 
-        <image src="{{imgUrls}}" class="slide-image" mode="aspectFill" />
-      </swiper-item>
+        <block wx:for="{{background}}" wx:key="*this">
+                <swiper-item> 
+                        <image src="{{imgUrls}}" class="slide-image" mode="aspectFill" />
+                </swiper-item>
+        </block>
   </swiper>
   <scroll-view class="title-view" scroll-x="true">
         <view class="subject_">

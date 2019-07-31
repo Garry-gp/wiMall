@@ -1,26 +1,39 @@
+<!-- index.wxml -->
+<view>
+        <view class='subject_'>
+                <view class="top_subject_">
+                        <image class="top_subject_ image" src="../../images/10232.png" />
+                        <view class="top_subject_child"><input class='query_input'  adjust-position="true"></input></view>
+                </view> 
+        </view>
+        <view style='height:1px;width:100%;background:#aaa'></view>
+        <view class="section">
+                <!-- 左侧类型 -->
+                <scroll-view scroll-y="true" class="left">
+                        <block wx:for="{{types}}" wx:key="typeId"  bindtap="tapType" style="font-size:33rpx">
+                                <view><text>{{item}}</text></view>
+                        </block>
+                </scroll-view>
 
-<view style="width:100%;height:15%;background:#f6f6f6">
-        <text>搜索</text> <input style='width:60%'></input>
-</view>
-
-<view class="section">
-        <!-- 左侧类型 -->
-        <scroll-view scroll-y="true" class="left">
-                <view wx:for="{{types}}" wx:key="typeId"  bindtap="tapType" style="font-size:33rpx">
-                <view>{{item}}</view>
-                </view>
-        </scroll-view>
-
-        <!-- 右侧数据 -->
-        <scroll-view scroll-y="true" class="right">
-                <view class="typeTree">
-                <view  class="brand" wx:for="{{typeTree}}" wx:for-item="data">
-                        <navigator url="../listdetail/listdetail?cat_id={{data.id}}&title={{data.name}}" wx:key="typeId" class="item">
-                        <image src="data:image/jpeg;base64,{{data.image}}"></image>
-                        <text>{{data.name}}</text>
-                        </navigator>
-                        
-                </view>
-                </view>
-        </scroll-view>
+                <!-- 右侧数据 -->
+                <scroll-view scroll-y="true" class="right">
+                        <view class="typeTree_topic">
+                                <view class='advance_column'></view>
+                        </view>
+                        <view class="typeTree_bottom">
+                               <view class='trend_table'>
+                                        <view class='trend_type'></view>
+                                        <view class='trend_type'></view>
+                               </view> 
+                               <view class='trend_table'>
+                                        <view class='trend_type'></view>
+                                        <view class='trend_type'></view>
+                               </view> 
+                               <view class='trend_table'>
+                                        <view class='trend_type'></view>
+                                        <view class='trend_type'></view>
+                               </view> 
+                        </view>
+                </scroll-view>
+        </view>
 </view>

@@ -9,6 +9,8 @@ Page({
         indicatorDots: false,    //提示点
         circular: true,         //衔接滑动
         autoplay: false,        //自动播放
+        vertical:false,
+        interval:10,           //自动切换
         previousMargin: 90,     //前边距离
         nextMargin: 90          //后边距离
   },
@@ -26,7 +28,7 @@ Page({
     var that = this
     //首页列表
     wx.request({
-      url: 'https://localhost:8080/productInfo/findAll',
+      url: 'https://www.runcui.net:8080/productInfo/findAll',
       success: function (res) {   
         var dd = res.data[0].image    
         that.setData({
