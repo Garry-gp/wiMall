@@ -1,7 +1,7 @@
 package com.example.app.controller;
 
 import com.example.app.service.imp.ActorServiceImpl;
-import com.example.app.model.Actor;
+import com.example.app.cmd.model.Actor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

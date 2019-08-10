@@ -1,6 +1,6 @@
 package com.example.app.service;
 
-import com.example.app.model.Templet;
+import com.example.app.cmd.model.Templet;
 
 
 public interface TempletService {

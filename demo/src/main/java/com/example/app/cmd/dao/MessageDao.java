@@ -1,6 +1,6 @@
-package com.example.app.dao;
+package com.example.app.cmd.dao;
 
-import com.example.app.model.Message;
+import com.example.app.cmd.model.Message;
 
 public interface MessageDao {
 

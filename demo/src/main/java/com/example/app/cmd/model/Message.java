@@ -1,4 +1,4 @@
-package com.example.app.model;
+package com.example.app.cmd.model;
 
 /**
  * @功能概要： 短信请求实体类

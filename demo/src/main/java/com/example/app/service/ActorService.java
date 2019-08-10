@@ -1,6 +1,6 @@
 package com.example.app.service;
 
-import com.example.app.model.Actor;
+import com.example.app.cmd.model.Actor;
 
 public interface ActorService {
 

@@ -1,7 +1,7 @@
 package com.example.app.controller;
 
 
-import com.example.app.model.Templet;
+import com.example.app.cmd.model.Templet;
 import com.example.app.service.imp.TempletServiceIpml;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

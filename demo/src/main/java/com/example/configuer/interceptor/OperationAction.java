@@ -1,4 +1,4 @@
-package com.example.intercept;
+package com.example.configuer.interceptor;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

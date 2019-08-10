@@ -7,7 +7,7 @@ import java.util.Map;
  * 通用的容器
  * @param <T>
  */
-public class Container<T> {
+public class ResultSet<T> {
     private final Map<String,T> source= new HashMap<>();
 
     public T get(String key){

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
- <mapper namespace="com.example.app.dao.ActorDao">
-        <resultMap id="actorResultMap" type="com.example.app.model.Actor" >
+ <mapper namespace="com.example.app.cmd.dao.ActorDao">
+        <resultMap id="actorResultMap" type="com.example.app.cmd.model.Actor" >
             <id column="actor_id" property="actorId"></id>
             <result column="first_name" property="firstName"></result>
             <result column="last_name" property="lastName"></result>

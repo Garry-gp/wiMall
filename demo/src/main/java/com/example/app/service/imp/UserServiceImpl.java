@@ -1,8 +1,8 @@
 package com.example.app.service.imp;
 
-import com.example.app.dao.UserDao;
-import com.example.app.model.Templet;
-import com.example.app.model.Users;
+import com.example.app.cmd.dao.UserDao;
+import com.example.app.cmd.model.Templet;
+import com.example.app.cmd.model.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

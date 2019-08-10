@@ -1,6 +1,6 @@
 package com.example.demo.testService;
 
-import com.example.app.model.Actor;
+import com.example.app.cmd.model.Actor;
 import com.example.app.service.imp.ActorServiceImpl;
 import org.junit.Assert;
 import org.junit.Test;

@@ -1,6 +1,6 @@
-package com.example.app.dao;
+package com.example.app.cmd.dao;
 
-import com.example.app.model.Templet;
+import com.example.app.cmd.model.Templet;
 //import org.springframework.data.domain.Page;
 //import org.springframework.data.domain.Pageable;
 

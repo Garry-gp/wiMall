@@ -1,6 +1,6 @@
-package com.example.app.dao;
+package com.example.app.cmd.dao;
 
-import com.example.app.model.Actor;
+import com.example.app.cmd.model.Actor;
 
 public interface ActorDao {
 

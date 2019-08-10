@@ -1,7 +1,7 @@
-package com.example.app.dao;
+package com.example.app.cmd.dao;
 
 
-import com.example.app.model.Users;
+import com.example.app.cmd.model.Users;
 //import org.springframework.data.domain.Page;
 //import org.springframework.data.domain.Pageable;
 

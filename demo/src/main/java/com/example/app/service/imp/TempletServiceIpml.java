@@ -2,8 +2,8 @@ package com.example.app.service.imp;
 
 import java.util.List;
 
-import com.example.app.model.Templet;
-import com.example.app.dao.TempletDao;
+import com.example.app.cmd.model.Templet;
+import com.example.app.cmd.dao.TempletDao;
 import com.example.app.service.TempletService;
 import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.data.domain.Page;

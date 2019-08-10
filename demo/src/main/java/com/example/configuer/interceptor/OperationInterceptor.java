@@ -1,7 +1,7 @@
-package com.example.intercept;
+package com.example.configuer.interceptor;
 
-import com.example.app.dao.OperationDao;
-import com.example.app.model.Users;
+import com.example.app.cmd.dao.OperationDao;
+import com.example.app.cmd.model.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
@@ -13,6 +13,10 @@ import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.List;
 
+/**
+ * 拦截器
+ * 角色的权限控制
+ */
 public class OperationInterceptor extends HandlerInterceptorAdapter {
 
     @Autowired

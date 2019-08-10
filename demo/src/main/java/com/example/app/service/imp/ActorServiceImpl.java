@@ -1,7 +1,7 @@
 package com.example.app.service.imp;
 
-import com.example.app.dao.ActorDao;
-import com.example.app.model.Actor;
+import com.example.app.cmd.dao.ActorDao;
+import com.example.app.cmd.model.Actor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
