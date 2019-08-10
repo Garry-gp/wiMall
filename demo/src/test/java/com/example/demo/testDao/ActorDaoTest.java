@@ -1,7 +1,7 @@
 package com.example.demo.testDao;
 
-import com.example.demo.dao.ActorDao;
-import com.example.demo.model.Actor;
+import com.example.app.dao.ActorDao;
+import com.example.app.model.Actor;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

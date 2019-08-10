@@ -1,7 +1,7 @@
 package com.example.demo.testService;
 
-import com.example.demo.model.Actor;
-import com.example.demo.service.ActorService;
+import com.example.app.model.Actor;
+import com.example.app.service.imp.ActorServiceImpl;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,12 +14,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class ActorServiceTest {
 
     @Autowired
-    ActorService actorService;
+    ActorServiceImpl actorServiceImpl;
 
     @Test
     public void testFindActorById(){
         int actorId =2;
-        Actor actor = actorService.findActorById(actorId);
+        Actor actor = actorServiceImpl.findActorById(actorId);
         Assert.assertEquals(actor.getFirstName(),"NICK");
     }
 }

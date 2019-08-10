@@ -1,6 +1,6 @@
 package com.example.demo;
 
-import com.example.demo.util.MyDate;
+import com.example.app.util.MyDate;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
