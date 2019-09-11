@@ -1,4 +1,4 @@
-package com.example.app.service;
+package com.example.app.service.userService;
 
 //import javax.persistence.EntityManager;
 
@@ -9,5 +9,4 @@ package com.example.app.service;
 
 
 public interface UserService {
-
 }

@@ -1,18 +1,13 @@
 package com.example.app.controller;
 
 
-import com.example.app.service.imp.TempletServiceIpml;
-import com.example.app.service.UserService;
+import com.example.app.service.templetService.TempletService;
+import com.example.app.service.templetService.imp.TempletServiceIpml;
+import com.example.app.service.userService.UserService;
 import com.example.app.util.ApplicationContextUtil;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiOperation;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-//import org.springframework.data.domain.Page;
-//import org.springframework.data.domain.PageRequest;
-//import org.springframework.data.domain.Pageable;
-//import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,7 +20,6 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
-@Api(tags = "用户管理")
 @RestController
 @RequestMapping("/userInfo")
 public class UserController {
@@ -33,11 +27,8 @@ public class UserController {
 	@Autowired
     UserService userService;
 	@Autowired
-	TempletServiceIpml templetServiceIpml;
+	TempletService templetService;
 
-//	@OperationAction(name ="role", value="operation")
-	@ApiOperation(value = "登录")
-	@ApiImplicitParam(name = "userName",value = "用户名称",required = true)
 	@RequestMapping(value = "/toLogin",method = RequestMethod.POST)
 	public Map<String,Object> login(HttpServletRequest request, HttpServletResponse response){
 		Map<String,Object> map =new HashMap<String,Object>();
@@ -56,7 +47,6 @@ public class UserController {
 		}
 		return map;
 	}
-	@ApiOperation(value = "退出")
 	@RequestMapping(value = "/logOff",method = RequestMethod.GET)
 	public boolean logOff(HttpServletRequest request, HttpServletResponse response){
 		request.getSession().removeAttribute("adminName");
@@ -64,7 +54,6 @@ public class UserController {
 		return true;
 	}
 
-	@ApiOperation(value = "查询")
 	@RequestMapping(value="/query",method=RequestMethod.GET)
 	public Map<String, Object> getUserDate(@RequestParam(value = "page")Integer page,@RequestParam(value = "rows")Integer size) throws Exception{
 

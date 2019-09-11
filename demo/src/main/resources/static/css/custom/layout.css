@@ -1,7 +1,8 @@
 @CHARSET "UTF-8";
 
 .easyui-layout .font-size-title{
-	font-size: 20px;
+	font-size: 26px;
+	margin-left: 11px;
 }
 
 .center_div{
@@ -16,4 +17,12 @@
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%,-50%);
+}
+
+.easyui-accordion div div a{
+	font-size: 15px;
+}
+
+.easyui-accordion div {
+	padding: 2px;
 }

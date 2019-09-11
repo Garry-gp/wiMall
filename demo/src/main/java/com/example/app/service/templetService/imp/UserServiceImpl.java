@@ -1,24 +1,23 @@
-package com.example.app.service.imp;
+package com.example.app.service.templetService.imp;
 
-import com.example.app.cmd.dao.UserDao;
-import com.example.app.cmd.model.Templet;
-import com.example.app.cmd.model.Users;
+import com.example.app.dao.UserDao;
+import com.example.app.model.Templet;
+import com.example.app.model.Users;
+import com.example.app.service.userService.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import javax.persistence.PersistenceContext;
 import java.text.SimpleDateFormat;
 
-@Service("userService")
-public class UserServiceImpl {
+@Service()
+public class UserServiceImpl implements UserService {
     // 日期格式定义
     private final SimpleDateFormat dateFormat	= new SimpleDateFormat("MMddHHmmss");
 
-    @Autowired
-    UserDao userDao;
-    @PersistenceContext
-//	private EntityManager entityManager;
-
+    @Resource
+    private UserDao userDao;
 
     public Users findUser(String name){
         return userDao.findByName(name);
@@ -120,7 +119,7 @@ public class UserServiceImpl {
      * @param code
      */
     public String checkIdentifyingCode(String phone, String code, int time ) {
-        Users user = findUser(phone);
+//        Users user = findUser(phone);
 //		String uCode = user.getCode();
         String tag = "";
 //		if(time < 60){

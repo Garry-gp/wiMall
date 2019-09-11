@@ -1,8 +1,8 @@
-package com.example.app.cmd.repository;
+package com.example.app.repository;
 
 import java.util.List;
 
-import com.example.app.cmd.model.Templet;
+import com.example.app.model.Templet;
 import org.springframework.stereotype.Service;
 
 
