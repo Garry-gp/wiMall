@@ -30,6 +30,7 @@ public class DemoApplication {
 				securityConstraint.setUserConstraint("CONFIDENTIAL");//confidential
 				SecurityCollection collection=new SecurityCollection();
 				collection.addPattern("/*");
+				collection.addPattern("*.do");
 				securityConstraint.addCollection(collection);
 				context.addConstraint(securityConstraint);
 			}
